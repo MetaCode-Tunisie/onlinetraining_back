@@ -1,0 +1,13 @@
+com\example\sponsorpublicite\entities\Publicite.class
+com\example\sponsorpublicite\entities\Publicite$PubliciteBuilder.class
+com\example\sponsorpublicite\services\Iservices\ISponsorService.class
+com\example\sponsorpublicite\services\PubliciteService.class
+com\example\sponsorpublicite\entities\Sponsor.class
+com\example\sponsorpublicite\controllers\PubliciteController.class
+com\example\sponsorpublicite\SponsorPubliciteApplication.class
+com\example\sponsorpublicite\controllers\SponsorController.class
+com\example\sponsorpublicite\repositories\PubliciteRepository.class
+com\example\sponsorpublicite\services\SponsorService.class
+com\example\sponsorpublicite\services\Iservices\IPubliciteService.class
+com\example\sponsorpublicite\entities\Sponsor$SponsorBuilder.class
+com\example\sponsorpublicite\repositories\SponsorRepository.class

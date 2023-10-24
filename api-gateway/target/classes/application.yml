@@ -1,0 +1,67 @@
+spring:
+  application:
+    name: api-gateway
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway.route.RouteDefinitionLocator: INFO
+    org.springframework.cloud.gateway: TRACE
+
+
+
+spring.cloud.gateway.routes:
+        - id: updateCourseRoute
+          predicates:
+            - Method=PUT
+            - Path=/Exam/updateCourse/**
+          uri: lb://exam-service
+        - id: deleteCourseRoute
+          predicates:
+            - Method=DELETE
+            - Path=/Exam/deleteCourse/**
+          uri: lb://exam-service
+        - id: courseByIdRoute
+          predicates:
+            - Method=GET
+            - Path=/Exam/coursebyid/**
+          uri: lb://exam-service
+        - id: addExamRoute
+          predicates:
+            - Method=POST
+            - Path=/Exam/addExam
+          uri: lb://exam-service
+        - id: updateExamRoute
+          predicates:
+            - Method=PUT
+            - Path=/Exam/updateExam/**
+          uri: lb://exam-service
+        - id: deleteExamRoute
+          predicates:
+            - Method=DELETE
+            - Path=/Exam/deleteExam/**
+          uri: lb://exam-service
+        - id: listExamsRoute
+          predicates:
+            - Method=GET
+            - Path=/Exam/listExams
+          uri: lb://exam-service
+        - id: listCoursesRoute
+          predicates:
+            - Method=GET
+            - Path=/Exam/listCourses/**
+          uri: lb://exam-service
+        - id: addCourseRoute
+          predicates:
+            - Method=POST
+            - Path=/Exam/addCourse/**
+          uri: lb://exam-service
+        - id: discovery-server
+          uri: http://localhost:8761
+          predicates[0]: Path=/eureka/web
+          filters[0]: SetPath=/
+        - id: discovery-server-static
+          uri: http://localhost:8761
+          predicates: Path=/eureka/**
+
+

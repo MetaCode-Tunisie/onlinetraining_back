@@ -1,0 +1,15 @@
+com\example\formation\FormationApplication.class
+com\example\formation\Controller\formationController.class
+com\example\formation\Repository\categorieRepository.class
+com\example\formation\Repository\NotificationRepository.class
+com\example\formation\Repository\formationRepository.class
+com\example\formation\Services\notificationService.class
+com\example\formation\Entites\Notification.class
+com\example\formation\Services\IcategorieServices.class
+com\example\formation\Services\formationService.class
+com\example\formation\Controller\categorieController.class
+com\example\formation\Entites\formation.class
+com\example\formation\Services\InotificationService.class
+com\example\formation\Entites\categorie.class
+com\example\formation\Services\categorieService.class
+com\example\formation\Services\IformationService.class

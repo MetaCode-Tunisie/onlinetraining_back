@@ -1,0 +1,12 @@
+com\example\exam_microservice\Repository\CourseRepository.class
+com\example\exam_microservice\Services\IServiceCourse.class
+com\example\exam_microservice\Entities\Exam.class
+com\example\exam_microservice\Dto\CourseDto.class
+com\example\exam_microservice\Services\ServiceCourse.class
+com\example\exam_microservice\Entities\Course.class
+com\example\exam_microservice\Controllers\ExamController.class
+com\example\exam_microservice\ExamMicroserviceApplication.class
+com\example\exam_microservice\Services\ServiceExam.class
+com\example\exam_microservice\Dto\ExamDto.class
+com\example\exam_microservice\Services\IServiceExam.class
+com\example\exam_microservice\Repository\ExamRepository.class
