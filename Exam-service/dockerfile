@@ -1,0 +1,4 @@
+FROM openjdk:8
+EXPOSE 8700
+ADD target/Exam-service-0.0.1-SNAPSHOT.jar Exam-service.jar
+ENTRYPOINT ["java","-jar","Exam-service.jar"]

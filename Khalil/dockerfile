@@ -1,0 +1,4 @@
+FROM openjdk:8
+EXPOSE 8700
+ADD target/Khalil-0.0.1-SNAPSHOT.jar Khalil.jar
+ENTRYPOINT ["java","-jar","Khalil.jar"]

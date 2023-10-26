@@ -1,0 +1,127 @@
+version: "2.4"
+services:
+  # Eureka
+  Eureka:
+    container_name: serviceregistry
+    build: ./Eureka-Server
+    ports:
+      - "8761:8761"
+    hostname: serviceregistry
+    image: "eureka"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+
+  # Sponsor
+  sponsorServer:
+    container_name: sponsor
+    build: ./khalil
+    ports:
+      - "8082:8700"
+    hostname: sponsor
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://docker-mysql_4:3306/back?autoReconnect=true&useSSL=false
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+    image: "sponsor"
+    depends_on:
+      - Eureka
+      - docker-mysql_4
+
+  docker-mysql_4:
+    image: "mysql:5.6"
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=back
+    ports:
+      - 3305:3306
+
+  # Exam
+  examServer:
+    container_name: exam
+    build: ./Exam-service
+    ports:
+      - "8081:8700"
+    hostname: exam
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://docker-mysql_3:3306/examenmicroservice?autoReconnect=true&useSSL=false
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+    image: "fomation"
+    depends_on:
+      - Eureka
+      - docker-mysql_3
+
+  docker-mysql_3:
+    image: "mysql:5.6"
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=examenmicroservice
+    ports:
+      - 3309:3306
+
+  # Formation
+  formationServer:
+    container_name: formation
+    build: ./Formation-service
+    ports:
+      - "8084:8700"
+    hostname: formation
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://docker-mysql_1:3306/back?autoReconnect=true&useSSL=false
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+    image: "fomation"
+    depends_on:
+      - Eureka
+      - docker-mysql_1
+
+  docker-mysql_1:
+    image: "mysql:5.6"
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=back
+    ports:
+      - 3307:3306
+
+  # Forum
+  forumServer:
+    build:
+      context: ./Forum-service
+    ports:
+      - "8083:8700"
+    image: "forum"
+    depends_on:
+      - Eureka
+
+  # Event
+  eventServer:
+    container_name: event
+    build: ./Event-service
+    ports:
+      - "8085:8700"
+    hostname: event
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://docker-mysql_2:3306/back?autoReconnect=true&useSSL=false
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+    image: "event"
+    depends_on:
+      - Eureka
+      - docker-mysql_2
+
+  docker-mysql_2:
+    image: "mysql:5.6"
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=back
+    ports:
+      - 3308:3306
+
+  # apigateway
+  apigateway:
+    container_name: apigateway
+    build: ./ApiGateway
+    ports:
+      - "9999:8700"
+    hostname: apigateway
+    image: "apigateway"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+    depends_on:
+      - Eureka

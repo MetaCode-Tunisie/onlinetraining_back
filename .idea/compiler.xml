@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="EurekaServer" />
+        <module name="Exam-service" />
+        <module name="Event-service" />
+        <module name="Forum-service" />
+        <module name="Khalil" />
+        <module name="Formation-service" />
+        <module name="ApiGateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Quiz" target="11" />
+      <module name="SponsorPublicite" target="1.8" />
+      <module name="testeureka" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ApiGateway" options="-parameters" />
+      <module name="EurekaServer" options="-parameters" />
+      <module name="Event-service" options="-parameters" />
+      <module name="Exam-service" options="-parameters" />
+      <module name="Formation-service" options="-parameters" />
+      <module name="Forum-service" options="-parameters" />
+      <module name="Khalil" options="-parameters" />
+      <module name="Quiz" options="-parameters" />
+      <module name="SponsorPublicite" options="-parameters" />
+      <module name="testeureka" options="-parameters" />
+    </option>
+  </component>
+</project>
